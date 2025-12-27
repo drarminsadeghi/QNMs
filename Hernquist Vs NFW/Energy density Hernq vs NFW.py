@@ -60,7 +60,8 @@ def compute_rho0(Mhalo, a0, alpha, beta, gamma, is_nfw):
         epsrel=1e-9,
         # (relative tolerance) This sets the relative error allowed in the integral.
         #means the algorithm tries to make the error smaller than one part in a billion relative to the integral value.
-        limit=500)
+        limit=500,
+        full_output=False)[:2]
 
     rho0 = Mhalo / (4.0 * np.pi * integral)
     return rho0
@@ -131,3 +132,4 @@ axes[0, 0].legend()
 plt.tight_layout()
 plt.savefig("Plots/HernqvsNFW.pdf", format="pdf")
 plt.show()
+
